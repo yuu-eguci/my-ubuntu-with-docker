@@ -7,7 +7,7 @@ my-ubuntu-with-docker
 ## When you install this on your Desktop
 
 ```bash
-# Chekc you have docker command.
+# Chekc you have docker command on your host machine.
 docker --version
 
 # Build an image from ./Dockerfile
@@ -20,11 +20,13 @@ docker build -t my-ubuntu-with-docker .
 # --name: Container name.
 # -p: localhost:8888 to container:80
 # -e: If you want env vars.
+# -v docker.sock: Use host machine's docker.
 # Image that the container created from.
 docker run -it -d \
     --name my-ubuntu-with-docker-container \
     -p 8888:80 \
     -e Foo=foo \
+    -v /var/run/docker.sock:/var/run/docker.sock \
     my-ubuntu-with-docker
 
 # Enter in the container
@@ -37,6 +39,9 @@ lsb_release -a
 # Check ubuntu architecture.
 # NOTE: Docker Engine の Prerequisites に OS Versions と architectures があるので確認する。
 arch
+
+# Verify that Docker Engine is installed correctly by running the hello-world image.
+sudo docker run hello-world
 
 # Stop the container.
 docker stop my-ubuntu-with-docker-container
