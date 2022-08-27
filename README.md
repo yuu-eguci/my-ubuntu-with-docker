@@ -34,11 +34,33 @@ docker exec -it my-ubuntu-with-docker-container sh
 # NOTE: "No LSB modules are available." は気にしなくていい。
 lsb_release -a
 
+# Check ubuntu architecture.
+# NOTE: Docker Engine の Prerequisites に OS Versions と architectures があるので確認する。
+arch
+
 # Stop the container.
 docker stop my-ubuntu-with-docker-container
 
 # Remove the container.
 docker rm my-ubuntu-with-docker-container
+
+# ---
+
+# 作業用コマンドです。
+
+# List processing container ids.
+docker ps --format "table {{.Names}}\t{{.ID}}"
+
+# Save the edited container as an image.
+docker commit CONTAINER_ID my-ubuntu-with-docker:0.0.1
+
+# Create container from the image committed above.
+docker run -it -d \
+    --name my-ubuntu-with-docker-container \
+    -p 8888:80 \
+    -e Foo=foo \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    my-ubuntu-with-docker:0.0.1
 
 # ---
 
