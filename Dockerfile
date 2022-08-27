@@ -34,5 +34,5 @@ RUN sudo apt-get update
 RUN sudo apt-get install -y \
     docker-ce docker-ce-cli containerd.io docker-compose-plugin
 # Verify that Docker Engine is installed correctly by running the hello-world image.
-# NOTE: This must fail on Docker-in-Docker environment.
-RUN sudo docker run hello-world
+# NOTE: これは単純な Docker-in-Docker 環境では機能しない。
+# RUN sudo docker run hello-world
