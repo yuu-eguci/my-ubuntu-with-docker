@@ -1,8 +1,8 @@
 my-ubuntu-with-docker
 ===
 
-🐧 + 🐳 docker-compose 入りの ubuntu image です。
-空っぽの ubuntu を手に入れたとき、 docker-compose をインストールするまでの手順書でもあります。
+🐧 + 🐳 docker compose 入りの ubuntu image です。
+空っぽの ubuntu を手に入れたとき、 docker compose をインストールするまでの手順書でもあります。
 
 ## When you install this on your Desktop
 
@@ -12,7 +12,7 @@ docker --version
 
 # Build an image from ./Dockerfile
 # Run this after updating Dockerfile!
-# NOTE: docker-compose を使えば docker-compose build で簡単に更新できるが、
+# NOTE: docker compose を使えば docker compose build で簡単に更新できるが、
 #       今回はシンプルさを優先している。
 docker build -t my-ubuntu-with-docker .
 
@@ -61,6 +61,6 @@ service nginx status
 nginx -s quit
 ```
 
-## You you install docker-compose on your own ubuntu
+## You you install docker compose on your own ubuntu
 
 Refer to ./Dockerfile.
